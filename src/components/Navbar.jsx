@@ -7,6 +7,13 @@ const Navbar = () => {
 
   const handleToggle = () => setIsOpen(!isOpen);
 
+  const links = [
+  { id: "home", fr: "À propos", en: "About me" },
+  { id: "projects", fr: "Projets", en: "Projects" },
+  { id: "skills", fr: "Compétences", en: "Skills" },
+  { id: "contact", fr: "Contact", en: "Contact" },
+];
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -16,14 +23,23 @@ const Navbar = () => {
         </button>
         <div className={`navbar-menu ${isOpen ? "open" : ""}`}>
           <ul className="navbar-links">
-            <li><a href="#home" className="navbar-link">{language === "fr" ? "À propos" : "About me"}</a></li>
-            <li><a href="#projects" className="navbar-link">{language === "fr" ? "Projets" : "Projects"}</a></li>
-            <li><a href="#skills" className="navbar-link">{language === "fr" ? "Compétences" : "Skills"}</a></li>
-            <li><a href="#contact" className="navbar-link">{language === "fr" ? "Contact" : "Contact"}</a></li>
-          </ul>
-          <button onClick={toggleLanguage} className="contact-button">
-            {language === "fr" ? "🇬🇧 EN" : "🇫🇷 FR"}
+            {links.map(link => (
+              <li key={link.id}>
+                <a href={`#${link.id}`} className="navbar-link">
+                  {language === "fr" ? link.fr : link.en}
+                </a>
+              </li>
+            ))}
+            <button onClick={toggleLanguage} className="language-button desktop-only">
+             {language === "fr" ? "EN" : "FR"}
+            
           </button>
+
+          <button onClick={toggleLanguage} className="language-button-mobile mobile-only">
+            {language === "fr" ? "EN" : "FR"}
+            
+          </button>
+          </ul>
         </div>
       </div>
     </nav>

@@ -6,6 +6,7 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'animate.css';
 
 function App() {
   return (

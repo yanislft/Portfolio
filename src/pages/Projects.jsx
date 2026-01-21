@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
+import CericarImg from "../assets/CERICAR.svg";
+import WithuImg from "../assets/withu3.png";
+import RsnlImg from "../assets/rsnl.png";
+import GithubButton from "../components/GithubButton.jsx";
+
 const Projects = () => {
   const { language } = useContext(LanguageContext);
 
@@ -21,19 +26,40 @@ const Projects = () => {
           rel="noopener noreferrer"
           className="project-card"
         >
-          <h3 className="project-title">
-            {language === "fr"
-              ? "Projet : Ma Supérette sur le Net"
-              : "Project: My Online Grocery Store"}
-          </h3>
-          <p className="project-description">
-            {language === "fr"
-              ? "Application Java de gestion d’une supérette en ligne : gestion des produits, fournisseurs, ventes, lots, contrats, stocks, commandes et utilisateurs via PostgreSQL."
-              : "Java application to manage an online grocery store: product, supplier, sales, lot, contract, stock, order and user management via PostgreSQL."}
-          </p>
-          <p className="project-tech">
-            Technologies: Java, PostgreSQL, JDBC, SQL, Java OOP
-          </p>
+          <div className="project-card-media">
+            <img
+              src={CericarImg}
+              alt="project preview"
+              className="project-card-image"
+            />
+          </div>
+          <div className="project-card-content">
+            <h3 className="project-title">
+              {language === "fr"
+                ? "Application web de covoiturage"
+                : "Web Carpooling Application"}
+            </h3>
+            <p className="project-description">
+              {language === "fr" ? (
+                <>
+                Plateforme permettant la recherche, proposition et réservation de trajets via une interface fluide en AJAX, avec gestion des profils et des réservations.
+                </>
+              ) : (
+                  "A platform that allows users to search for, propose, and book trips through a smooth AJAX-based interface, with user profile and booking management"
+              )}
+            </p>
+            <p className="project-tech">
+              {language === "fr"
+                ? "Technologies: Yii2, PHP, JavaScript et PostgreSQL"
+                : "Technologies: Yii2, PHP, JavaScript and PostgreSQL"}
+              
+            </p>
+
+            <div className="github-button-wrapper">
+                  <GithubButton />
+              </div>
+
+          </div>
         </a>
         <a
           href="https://github.com/yanislft/Projet-R-seau-routier"
@@ -41,19 +67,33 @@ const Projects = () => {
           rel="noopener noreferrer"
           className="project-card"
         >
-          <h3 className="project-title">
-            {language === "fr"
-              ? "Projet Réseau routier (C++)"
-              : "Road Network Project (C++)"}
-          </h3>
-          <p className="project-description">
-            {language === "fr"
-              ? "Implémentation de graphes orientés avec algorithmes de parcours à partir de fichiers CSV (nodes/arcs)."
-              : "Implementation of directed graphs with traversal algorithms using CSV files (nodes/arcs)."}
-          </p>
-          <p className="project-tech">
-            Technologies: C++, Graphs, Algorithms
-          </p>
+          <div className="project-card-media">
+            <img
+              src={WithuImg}
+              alt="project preview"
+              className="project-card-image withu-image"
+            />
+          </div>
+          <div className="project-card-content">
+            <h3 className="project-title">
+              {language === "fr"
+                ? "Application web de communication en temps réel"
+                : "Real-Time Communication Web Application"}
+            </h3>
+            <p className="project-description">
+              {language === "fr"
+                ? "Plateforme permettant la création de salons, la messagerie instantanée, le visionnage synchronisé de vidéos YouTube et les échanges en temps réel entre utilisateurs, avec gestion de l’authentification et des profils via une interface moderne et interactive."
+                : "A platform that enables the creation of chat rooms, instant messaging, synchronized YouTube video watching, and real-time interactions between users, with authentication and profile management through a modern and interactive interface."}
+            </p>
+            <p className="project-tech">
+              Technologies: Laravel, Laravel Reverb, JWT, React, PostgreSQL, YouTube IFrame API
+            </p>
+
+              <div className="github-button-wrapper">
+                  <GithubButton />
+              </div>
+
+          </div>
         </a>
         <a
           href="https://github.com/yanislft/Moteur-de-recherche"
@@ -61,19 +101,45 @@ const Projects = () => {
           rel="noopener noreferrer"
           className="project-card"
         >
-          <h3 className="project-title">
-            {language === "fr"
-              ? "Projet Wiki Search (Java)"
-              : "Wiki Search Engine (Java)"}
-          </h3>
-          <p className="project-description">
-            {language === "fr"
-              ? "Moteur de recherche sur un corpus de documents utilisant TF-IDF et BM25, avec gestion de stopwords."
-              : "Search engine over a document corpus using TF-IDF and BM25, with stopword handling."}
-          </p>
-          <p className="project-tech">
-            Technologies: Java, Information Retrieval, TF-IDF, BM25
-          </p>
+          <div className="project-card-media">
+            <img
+              src={RsnlImg}
+              alt="project preview"
+              className="project-card-image withu-image"
+            />
+          </div>
+          <div className="project-card-content">
+            <h3 className="project-title">
+              {language === "fr"
+                ? "Application web de location de voiture"
+                : "Car Rental Web Application"}
+            </h3>
+            <p className="project-description">
+              {language === "fr"
+                ? 
+                (
+                <>
+                Plateforme permettant aux utilisateurs de consulter un showroom en ligne, de réserver un véhicule et de gérer leur compte. Une interface d’administration sécurisée permet de gérer les utilisateurs et les véhicules. 
+                <br />
+                Le projet intègre des fonctionnalités de connexion avec sessions, cookies, envoi d’e-mails et protection CSRF.
+                </>
+              ) : (
+                <>
+                  A platform that allows users to browse an online showroom, book a vehicle, and manage their account.
+                  A secure administration interface enables user and vehicle management.
+                  <br />
+                  The project includes authentication with sessions and cookies, email sending, and CSRF protection.
+                </>
+              )}
+            </p>
+            <p className="project-tech">
+              Technologies: PHP, JavaScript, PostgreSQL
+            </p>
+
+               <div className="github-button-wrapper">
+                  <GithubButton />
+              </div>
+          </div>
         </a>
       </div>
       <p className="projects-more">

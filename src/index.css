@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
@@ -22,13 +22,13 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #2563eb;
+  color: black;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   margin: 0;
   padding-top: 100px;
   min-width: 320px;
@@ -47,13 +47,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #3b82f6;
+  background-color: black;
   color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #2563eb;
+  border-color: black;
 }
 button:focus,
 button:focus-visible {
@@ -64,7 +64,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 4rem 1rem;
   min-height: 100vh;
@@ -72,71 +72,109 @@ section {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   border-radius: 0.75rem;
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.home-section {
-  background-color: white;
+* {
+  max-width: 100%;
 }
+
+/*.home-section {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+}*/
 
 .home-container {
   max-width: 48rem;
   margin: 0 auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container,
+.home-subtitle,
+.home-description {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .home-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 1000;
   color: #111827;
-  text-align: center;
+  text-align: left;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+  animation: fadeInLeft;
+  animation-duration: 2s;
 }
 
-@media (min-width: 640px) {
-  .home-title {
-    font-size: 3rem;
-  }
+.home-title-about {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 110%;
+  letter-spacing: -2%;
+  margin-bottom: 20px;
+
+    animation: fadeInRight;
+  animation-duration: 2s; 
 }
 
 .home-subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 5vw, 1.35rem);
   color: #374151;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-@media (min-width: 640px) {
-  .home-subtitle {
-    font-size: 1.25rem;
-  }
+  max-width: 100%;
+  padding: 0 1rem;
+  white-space: normal;
+      animation: fadeInRight;
+  animation-duration: 2s; 
 }
 
 .home-description {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 4.5vw, 1.15rem);
   color: #4b5563;
   text-align: center;
+  max-width: 100%;
+  padding: 0 1rem;
+  white-space: normal;
+      animation: fadeInRight;
+  animation-duration: 2s; 
 }
 
-@media (min-width: 640px) {
+@media (max-width: 480px) {
+  .home-subtitle,
   .home-description {
-    font-size: 1.125rem;
+    line-height: 1.6;
+    word-break: break-word;
   }
 }
+
+
 
 .home-span
 {
   color:#2563eb;
 }
 
-.projects-section {
+/*.projects-section {
   min-height: 100vh;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
   padding: 4rem 1.5rem;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   border-radius: 0.75rem;
   margin-bottom: 2rem;
-}
+}*/
 
 .projects-title {
   font-size: 2rem;
@@ -159,54 +197,94 @@ section {
 }
 
 .projects-grid {
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   margin-top: 3rem;
   max-width: 96rem;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 .project-card {
-  background-color: #f3f4f6;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 32px;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   text-align: left;
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project-card:nth-child(even) .project-card-content {
+  text-align: left;
 }
 
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card-media {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-image {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-card-media {
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+
+  .project-card-image {
+    max-height: 220px;
+  }
 }
 
 .project-title {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 600;
-  color: #3b82f6;
-  margin-bottom: 0.5rem;
+  color: #111827;
+  margin-bottom: 0.75rem;
 }
 
 .project-description {
-  color: #374151;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
 }
 
 .project-tech {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #6b7280;
+  padding-bottom: 40px;
 }
 
 .projects-more {
@@ -217,7 +295,8 @@ section {
 
 .skills-section {
   min-height: 100vh;
-  background-color: white;
+
+  backdrop-filter: blur(6px);
   padding: 4rem 1.5rem;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -274,6 +353,15 @@ section {
   transition: box-shadow 0.3s ease;
 }
 
+.skill-icon {
+  width: 128px;
+  height: 128px;
+  max-width: 50%;
+  object-fit: contain;
+  margin: 0 auto 0.75rem auto;
+  display: block;
+}
+
 .skill-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -292,7 +380,6 @@ section {
 
 .contact-section {
   min-height: 100vh;
-  background-color: white;
   padding: 4rem 1.5rem;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -326,7 +413,7 @@ section {
   align-items: center;
   gap: 1.5rem;
   font-size: 1.875rem;
-  color: #3b82f6;
+  color: red;
   margin-bottom: 2rem;
 }
 
@@ -335,11 +422,11 @@ section {
 }
 
 .contact-icons a:hover {
-  color: #2563eb;
+  color: #7c818a;
 }
 
 .contact-button {
-  background-color: #3b82f6;
+  background-color: black;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
@@ -349,7 +436,7 @@ section {
 }
 
 .contact-button:hover {
-  background-color: #2563eb;
+  background-color: white;
 }
 
 .navbar {
@@ -373,12 +460,17 @@ section {
 }
 
 .navbar-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 56;
+  font-weight: 1000;
+  color: black;
+  line-height: 110%;
+  letter-spacing: -3%;
 }
 
 .navbar-links {
+
+
   list-style: none;
   display: flex;
   gap: 1.5rem;
@@ -387,14 +479,18 @@ section {
 }
 
 .navbar-link {
-  color: #3b82f6;
-  text-decoration: none;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16;
+  color: black;
+  line-height: 145%;
+  letter-spacing: -0.5%;
+
   font-weight: 500;
-  transition: color 0.3s ease;
+
 }
 
 .navbar-link:hover {
-  color: #2563eb;
+  color: #7c818a;
 }
 
 .navbar-toggle {
@@ -403,7 +499,7 @@ section {
   background: none;
   border: none;
   cursor: pointer;
-  color: #1f2937;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -456,18 +552,364 @@ section {
   }
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/i4.png');
-  background-repeat: repeat-y;
-  background-size: cover;
-  background-position: center;
+
+
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project-card:nth-child(even) {
+    flex-direction: column;
+  }
+}
+
+body {
+background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #FFFFFF, #fff8f8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #FFFFFF, #fff8f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+/* From Uiverse.io by dylanharriscameron */ 
+.skill-card {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  ;
+}
+
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 190px;
+  height: 240px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+}
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ff0000;
   opacity: 1;
-  pointer-events: none;
+  filter: blur(12px);
+  animation: blob-bounce 7s infinite ease;
+}
+
+.blob.php
+{
+  background-color: purple;
+}
+
+.blob.react
+{
+  background-color: rgb(0, 229, 255);
+}
+
+.blob.cpp , .blob.sql
+{
+  background-color: blue;
+}
+
+.blob.git
+{
+  background-color: black;
+}
+
+.blob.linux
+{
+  background-color: yellow;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
+
+
+/* From Uiverse.io by eduardo-amaro-maciel */ 
+.language-button {
+  width: 72px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: transparent;
+  border: 1.5px solid #000814;
+  overflow: hidden;
+  position: relative;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 300ms ease;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.language-button::before {
+  content: "";
+  position: absolute;
   z-index: -1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: black;
+  top: 100%;
+  left: 0;
+  transition: 500ms ease;
+}
+
+.language-button:hover {
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.language-button:hover::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.language-button-mobile:active {
+  opacity: 0.85;
+}
+
+/* Par défaut : desktop */
+.desktop-only {
+  display: inline-flex !important;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: inline-flex !important;
+  }
+}
+
+.language-button-mobile {
+  width: 56px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #000814;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* From Uiverse.io by Creatlydev */ 
+.btn-github {
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  border: none;
+
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 100px;
+  font-weight: 800;
+  place-content: center;
+
+  padding: 0.75rem 1rem;
+  font-size: 0.825rem;
+  line-height: 1rem;
+
+  background-color: black;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.btn-github:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(252, 232, 3, 0.08);
+  color: #fce803;
+  transform: translate(0, -0.25rem);
+  background-color: black;
+}
+
+.github-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.withu-image {
+  max-width: 400px;      /* ajuste ici si besoin */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;        /* centre l’image */
+  display: block;
+}
+
+
+
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.social-links,.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  background: white;
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.social-btn svg {
+  height: 24px;
+  width: 24px;
+}
+
+.social-btn span {
+  width: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.social-btn:hover {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.social-btn:hover span {
+  padding: 2px;
+  width: 80px;
+}
+
+#linkedin svg {
+  fill: #0e76a8;
+}
+
+#github {
+  fill: #333;
+}
+
+/* From Uiverse.io by Codecite */ 
+.a-cv {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  font-family: sans-serif;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 14px 40px 13px;
+  overflow: hidden;
+  position: relative;
+}
+
+.a-cv:hover {
+  color: black;
+}
+
+.button-cv a::before {
+  position: absolute;
+  content: "";
+  z-index: 0;
+  background-color: black;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  height: 111%;
+  transition: all .3s ease;
+}
+
+.button-cv a:hover::before {
+  height: 11%;
+}
+
+.button-cv span {
+  position: relative;
+  z-index: 2;
+  transition: all .3s ease;
+}
+@media (max-width: 768px) {
+  section {
+    min-height: auto;
+    padding: 6rem 1rem 4rem;
+  }
+
+  .home-title {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-subtitle,
+  .home-description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding-top: 80px;
+  }
+
+  section {
+    border-radius: 0;
+  }
 }
