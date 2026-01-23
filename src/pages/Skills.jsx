@@ -111,6 +111,7 @@ const Skills = () => {
           <div className="blob linux"></div>
         </div>
       </div>
+      <br />
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
+import DarkModeToggle from "../components/DarkModeToggle.jsx";
 
 const Navbar = () => {
   const { language, toggleLanguage } = useContext(LanguageContext);
@@ -39,6 +40,9 @@ const Navbar = () => {
             {language === "fr" ? "EN" : "FR"}
             
           </button>
+
+            <DarkModeToggle></DarkModeToggle>
+
           </ul>
         </div>
       </div>
