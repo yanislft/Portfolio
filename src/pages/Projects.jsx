@@ -17,11 +17,11 @@ const Projects = () => {
       <p className="projects-intro">
         {language === "fr"
           ? "Voici une sélection de projets sur lesquels j'ai travaillé, illustrant mes compétences en développement web, algorithmique et modélisation."
-          : "Here is a selection of projects I've worked on, showcasing my skills in web development, algorithmics, and modeling."}
+          : "Here is a selection of projects I have worked on, showcasing my skills in web development, algorithmics, and modeling."}
       </p>
       <div className="projects-grid">
         <a
-          href="https://github.com/yanislft/Gestion-superette"
+          href="https://github.com/yanislft/cericar"
           target="_blank"
           rel="noopener noreferrer"
           className="project-card"
@@ -62,7 +62,7 @@ const Projects = () => {
           </div>
         </a>
         <a
-          href="https://github.com/yanislft/Projet-R-seau-routier"
+          href="https://github.com/malekghabi1607/WithYou"
           target="_blank"
           rel="noopener noreferrer"
           className="project-card"
@@ -96,7 +96,7 @@ const Projects = () => {
           </div>
         </a>
         <a
-          href="https://github.com/yanislft/Moteur-de-recherche"
+          href="https://github.com/yanislft/rsnightloc"
           target="_blank"
           rel="noopener noreferrer"
           className="project-card"

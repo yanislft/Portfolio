@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 export default function DarkModeToggle() {
   const [dark, setDark] = useState(false);
 
-  // 1️⃣ Charger le thème sauvegardé OU le thème système
   useEffect(() => {
     const saved = localStorage.getItem("theme");
 
@@ -15,7 +14,6 @@ export default function DarkModeToggle() {
     }
   }, []);
 
-  // 2️⃣ Appliquer la classe dark sur <html>
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
     localStorage.setItem("theme", dark ? "dark" : "light");

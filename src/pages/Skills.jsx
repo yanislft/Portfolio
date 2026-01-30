@@ -21,8 +21,8 @@ const Skills = () => {
       </h2>
       <p className="skills-intro">
         {language === "fr"
-          ? "Voici un aperçu des langages, outils et technologies que j’ai appris et utilisés dans mes projets :"
-          : "Here’s an overview of the languages, tools, and technologies I’ve learned and used in my projects :"}
+          ? "Voici un aperçu des langages, outils et technologies que j’ai acquis et appliqué dans mes projets :"
+          : "Here is an overview of the languages, tools, and technologies I have learned and used in my projects :"}
       </p>
       <div className="skills-grid">
         
