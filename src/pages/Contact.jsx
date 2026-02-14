@@ -44,7 +44,7 @@ const Contact = () => {
           
 
 <div className="button-cv">
-  <a href="/public/cvYanisLaftimi.pdf" download className="a-cv">
+  <a href="/cvYanisLaftimi.pdf" download className="a-cv">
     <span>{language === "fr" ? "Télécharger mon CV" : "Download My Resume"}</span>
   </a>
 </div>
